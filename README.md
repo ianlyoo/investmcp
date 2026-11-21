@@ -1,16 +1,22 @@
-# InvestMCP
+<h1><a href="#빠른-시작"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner.dark.webp"><img alt="InvestMCP: lets an AI assistant (any MCP client) answer questions about your own brokerage and crypto-futures accounts next to live market data and ticker research. 28 tools: accounts, markets, research." src="assets/readme/banner.light.webp" width="836"></picture></a></h1>
 
-**English abstract.** InvestMCP is a read-only MCP server that lets an individual investor ask an AI chat client such as Claude or ChatGPT about their own brokerage and crypto futures accounts together with public market data and ticker research. It merges my earlier K-invest and Ticker Research projects into one process with 28 tools: 10 account/portfolio, 11 public-data/status and 7 research. Account data comes only from official APIs (Toss Securities, Korea Investment & Securities, Binance, Hyperliquid), filings from SEC EDGAR, and unofficial Yahoo data via yfinance is labelled as such; there are no order or transfer tools. Each user runs it locally with their own keys for their own accounts; it is not a shared or hosted data service. Full English documentation: [README.en.md](README.en.md).
+[English](README.en.md) · 한국어
+
+**[빠른 시작](#빠른-시작)** (키 없이 합성 계좌로 실행) · [도구 28개](#도구-28개) · [테스트](#테스트)
+
+<a href="#도구-28개"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen.dark.webp"><img alt="Tool catalog, one process: 10 account and portfolio tools, 11 public data and status tools, 7 research tools. Read-only: no order or transfer tools." src="assets/readme/screen.light.webp" width="836"></picture></a>
+
+**English abstract.** InvestMCP is a read-only MCP server that lets an individual investor ask an AI assistant (any MCP client) about their own brokerage and crypto futures accounts together with public market data and ticker research. It merges my earlier K-invest and Ticker Research projects into one process with 28 tools: 10 account/portfolio, 11 public-data/status and 7 research. Account data comes only from official APIs (Toss Securities, Korea Investment & Securities, Binance, Hyperliquid), filings from SEC EDGAR, and unofficial Yahoo data via yfinance is labelled as such; there are no order or transfer tools. Each user runs it locally with their own keys for their own accounts; it is not a shared or hosted data service. Full English documentation: [README.en.md](README.en.md).
 
 ## 무엇인가
 
-개인 투자자가 Claude·ChatGPT 같은 AI 채팅에서 자기 증권·크립토 계좌와 공개 시장 데이터를 한곳에서 묻는 **읽기 전용** MCP 서버다. 국내·미국 주식과 크립토 선물을 다룬다. "내 보유 종목이 코스피 대비 어떤가"라는 질문에는 `get_holdings`로 종목을 읽고 `compare_price_performance`로 비교한다. "이 종목의 TTM 실적과 최근 내부자 거래는"이라는 질문에는 SEC 공시 도구를 쓴다.
+개인 투자자가 MCP를 쓰는 AI 어시스턴트에서 자기 증권·크립토 계좌와 공개 시장 데이터를 한곳에서 묻는 **읽기 전용** MCP 서버다. 국내·미국 주식과 크립토 선물을 다룬다. "내 보유 종목이 코스피 대비 어떤가"라는 질문에는 `get_holdings`로 종목을 읽고 `compare_price_performance`로 비교한다. "이 종목의 TTM 실적과 최근 내부자 거래는"이라는 질문에는 SEC 공시 도구를 쓴다.
 
 이전에 만든 두 프로젝트 [K-invest](https://github.com/ianlyoo/K-invest)와 [Ticker Research](https://github.com/ianlyoo/ticker-research-mcp)를 하나로 합쳤다. 계좌·회계 엔진은 기존 InvestMCP 2.15.4에서, 리서치 계산은 Ticker Research의 최신 공개 포크에서 가져왔다. 프로세스 하나, 도구 카탈로그 하나, 인증 경계 하나다. SEC 구현은 합치지 않았다. 재무 도구와 리서치 도구는 회계 기간·연속성·출처 검증 장치가 서로 달라서 각자 자기 구현을 쓴다.
 
 **각 사용자가 자기 키로 자기 계좌만 조회하도록 직접 실행한다. 공유하거나 남에게 시세를 제공하는 호스팅 데이터 서비스가 아니다.** 근거가 되는 약관은 [내 계좌 설정](#내-계좌-설정)에 있다.
 
-이 프로젝트는 Codex와 Claude AI 코딩 에이전트를 오케스트레이션해 만들었다. 설계, 범위, 채택과 공개 결정은 내가 내렸고, 에이전트가 구현과 테스트 실행을 맡았다.
+이 프로젝트는 클라우드 모델 코딩 에이전트를 오케스트레이션해 만들었다. 설계, 범위, 채택과 공개 결정은 내가 내렸고, 에이전트가 구현과 테스트 실행을 맡았다.
 
 ## 설계 원칙
 

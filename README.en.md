@@ -1,14 +1,18 @@
-# InvestMCP
+<h1><a href="#start-with-synthetic-accounts"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner.dark.webp"><img alt="InvestMCP: lets an AI assistant (any MCP client) answer questions about your own brokerage and crypto-futures accounts next to live market data and ticker research. 28 tools: accounts, markets, research." src="assets/readme/banner.light.webp" width="836"></picture></a></h1>
 
 [한국어](README.md) · English
 
-I built investmcp to bring my earlier [K-invest](https://github.com/ianlyoo/K-invest) and [Ticker Research](https://github.com/ianlyoo/ticker-research-mcp) projects into one read-only MCP server. It lets an AI chat client such as Claude or ChatGPT read your own brokerage and crypto futures accounts alongside public market data and ticker research for Korean and US securities and crypto futures.
+**[Start with synthetic accounts](#start-with-synthetic-accounts)** (no keys needed) · [Tools](#tools): 28 · [Tests](#development)
+
+<a href="#tools"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/screen.dark.webp"><img alt="Tool catalog, one process: 10 account and portfolio tools, 11 public data and status tools, 7 research tools. Read-only: no order or transfer tools." src="assets/readme/screen.light.webp" width="836"></picture></a>
+
+I built investmcp to bring my earlier [K-invest](https://github.com/ianlyoo/K-invest) and [Ticker Research](https://github.com/ianlyoo/ticker-research-mcp) projects into one read-only MCP server. It lets an AI assistant (any MCP client) read your own brokerage and crypto futures accounts alongside public market data and ticker research for Korean and US securities and crypto futures.
 
 The account and accounting engines come from my earlier InvestMCP 2.15.4. Research calculations come from the newer public Ticker Research fork, with SEC EDGAR and yfinance inputs. Finance and research keep their own SEC implementations to preserve their distinct fiscal-period, continuity and provenance safeguards. There is one process, one tool catalog, and one authentication boundary.
 
 **Each user runs this server with their own keys for their own accounts. It is not a shared or hosted data service.** See [Configure your own accounts](#configure-your-own-accounts) for the provider terms.
 
-I built this project by orchestrating Codex and Claude AI coding agents. The design, scope and acceptance decisions were mine; the agents implemented the code and ran the tests.
+I built this project by orchestrating cloud-model coding agents. The design, scope and acceptance decisions were mine; the agents implemented the code and ran the tests.
 
 ## Design principles
 
